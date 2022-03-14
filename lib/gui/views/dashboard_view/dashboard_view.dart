@@ -17,7 +17,17 @@ class DashboardView extends StatelessWidget {
           onPressed: () => ZoomDrawer.of(context)!.toggle(),
         ),
       ),
-      body: const Text("Dashboard page")
+      body: Column(
+        children: [
+          const Text(""),
+          IconButton(
+            icon: const Icon(
+              Icons.add
+            ),
+            onPressed: () => Navigator.pushNamed(context, 'profileLol'),
+          )
+        ],
+      )
     );
   }
 }

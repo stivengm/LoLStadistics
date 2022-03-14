@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: AppTheme.darkTheme,
       routes: routesApp(),
+      debugShowCheckedModeBanner: false,
       initialRoute: 'dashboard',
     );
 

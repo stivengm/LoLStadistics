@@ -6,6 +6,10 @@ class DashboardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Champions"),
+        centerTitle: false,
+      ),
       body: Text("Dashboard page!"),
     );
   }

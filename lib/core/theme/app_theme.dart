@@ -8,7 +8,7 @@ class AppTheme {
     scaffoldBackgroundColor: const Color(0xFF141414),
     colorScheme: const ColorScheme.dark(),
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.black
+      backgroundColor: Color(0xFF141414)
     )
   );
 

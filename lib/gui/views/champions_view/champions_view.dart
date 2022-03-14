@@ -35,7 +35,19 @@ class ChampionsView extends StatelessWidget {
                           Container(
                             child: Image.network('http://ddragon.leagueoflegends.com/cdn/12.5.1/img/champion/${state.champions!.data![champion]!.id!}.png'),
                           ),
-                          Text(state.champions!.data![champion]!.name!, style: Theme.of(context).textTheme.headline6)
+                          Text(state.champions!.data![champion]!.name!, style: Theme.of(context).textTheme.headline6),
+                          Column(
+                            children: [
+                              Image.asset('assets/ea.png', width: 20.0,),
+                              const Text("EA")
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Image.asset('assets/riot_point.png', width: 20.0,),
+                              const Text("RP")
+                            ],
+                          )
                         ],
                       ),
                       const Divider()

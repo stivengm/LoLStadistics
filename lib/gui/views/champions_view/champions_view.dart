@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:lol_stadistics/core/blocs/champions/champions_bloc.dart';
 
 class ChampionsView extends StatelessWidget {
@@ -11,6 +12,12 @@ class ChampionsView extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Champions"),
         centerTitle: false,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.menu
+          ),
+          onPressed: () => ZoomDrawer.of(context)!.toggle(),
+        ),
       ),
       body: BlocBuilder<ChampionsBloc, ChampionsState>(
         builder: (context, state) {

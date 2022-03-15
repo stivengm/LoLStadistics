@@ -42,8 +42,8 @@ E[estados];
 S[eventos]
 I{Hay Contenido};
 
-S --> B
-B --> S
+V --> B
+B --> V
 
 I --> |SI| S
 

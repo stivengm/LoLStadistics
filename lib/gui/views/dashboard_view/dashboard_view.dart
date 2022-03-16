@@ -19,7 +19,7 @@ class DashboardView extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const Text(""),
+          const Text("Dashboard"),
           IconButton(
             icon: const Icon(
               Icons.add

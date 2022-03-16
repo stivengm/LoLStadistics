@@ -9,10 +9,12 @@ class MenuItemModel {
 class MenuItems {
   static const dashboard = MenuItemModel('Inicio', 'assets/icons/home.svg');
   static const champions = MenuItemModel('Campeones', 'assets/icons/cart.svg');
+  static const gameNow = MenuItemModel('Partida en vivo', 'assets/icons/cart.svg');
 
   static const all = <MenuItemModel>[
     dashboard,
-    champions
+    champions,
+    gameNow
   ];
 
 }

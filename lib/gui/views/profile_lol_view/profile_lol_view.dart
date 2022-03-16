@@ -7,7 +7,17 @@ class ProfileLolView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: const Text("Profile lol"),
+      body: Column(
+        children: [
+          const Text("Profile Lol"),
+          IconButton(
+            icon: const Icon(
+              Icons.add
+            ),
+            onPressed: () => Navigator.pushNamed(context, 'maestryLoLAccount'),
+          )
+        ],
+      ),
     );
   }
 }

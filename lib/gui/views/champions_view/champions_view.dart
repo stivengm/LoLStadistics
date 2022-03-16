@@ -10,7 +10,7 @@ class ChampionsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Champions"),
+        title: const Text("Campeones"),
         centerTitle: false,
         leading: IconButton(
           icon: const Icon(

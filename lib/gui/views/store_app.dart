@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:lol_stadistics/data/models/apis_model.dart';
 import 'package:lol_stadistics/data/models/region_model.dart';
 
 class StoreAppView {
 
   String nameInvocador = "";
   String regionProfile = "";
+
+  ApisDataBaseModel apisDataBaseModel = ApisDataBaseModel();
 
   List<RegionModel> region = [
     RegionModel(text: 'LAN', value: 'la1'),

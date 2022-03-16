@@ -3,6 +3,7 @@ import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:lol_stadistics/gui/templates/menu_view.dart';
 import 'package:lol_stadistics/gui/views/champions_view/champions_view.dart';
 import 'package:lol_stadistics/gui/views/dashboard_view/dashboard_view.dart';
+import 'package:lol_stadistics/gui/views/game_now_view/game_now_view.dart';
 
 class ZoomDrawerApp extends StatefulWidget {
   const ZoomDrawerApp({ Key? key }) : super(key: key);
@@ -45,6 +46,8 @@ class _ZoomDrawerAppState extends State<ZoomDrawerApp> {
         return const DashboardView();
       case MenuItems.champions:
         return const ChampionsView();
+      case MenuItems.gameNow:
+        return const GameNowView();
       default:
       return const DashboardView();
     }

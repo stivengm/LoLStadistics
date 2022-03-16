@@ -4,6 +4,7 @@ import 'package:lol_stadistics/data/models/region_model.dart';
 class StoreAppView {
 
   String nameInvocador = "";
+  String regionProfile = "";
 
   List<RegionModel> region = [
     RegionModel(text: 'LAN', value: 'la1'),

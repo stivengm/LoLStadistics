@@ -64,7 +64,9 @@ class _DashboardViewState extends State<DashboardView> {
                     decoration: InputDecoration(
                         hintText: 'Región',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0))),
-                    onChanged: (value) {}
+                    onChanged: (value) {
+                      _store.regionProfile = value.toString();
+                    }
                   ),
                 ),
               ],
@@ -72,11 +74,20 @@ class _DashboardViewState extends State<DashboardView> {
             const SizedBox(height: 20.0),
             PrimaryButton(
               text: 'Buscar',
-              onPressed: () => _store.nameInvocador != '' ? Navigator.pushNamed(context, 'profileLol') : const FlushBarWidget(message: "Por favor escriba el nombre del invocador.",).showNotification(context),
+              onPressed: validFormSearchProfile
             )
           ],
         ),
       ),
     );
   }
+
+  validFormSearchProfile() {
+    if (_store.nameInvocador != '' && _store.regionProfile != '') {
+      Navigator.pushNamed(context, 'profileLol');
+    } else {
+      const FlushBarWidget(message: "Por favor escriba el nombre del invocador y eliga la región.",).showNotification(context);
+    }
+  }
+
 }

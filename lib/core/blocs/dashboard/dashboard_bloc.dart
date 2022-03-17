@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:lol_stadistics/data/models/apis_model.dart';
+import 'package:lol_stadistics/data/models/summonerName_model.dart';
 import 'package:lol_stadistics/gui/views/store_app.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;
@@ -29,11 +30,19 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
     }
   }
 
-  getProfileLoLAccount() {
-    state.loading = true;
+  getProfileLoLAccount() async {
+    add(HandleLoading(true));
     var url = Uri.https('${_store.regionProfile}.api.riotgames.com', '/lol/summoner/v4/summoners/by-name/${_store.nameInvocador}', {
-      "api_key": "RGAPI-acbda1b1-6a6e-45c6-82f8-f9d06ba06adc"
+      "api_key": _store.apisDataBaseModel.key
     });
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      add(HandleLoading(false));
+      _store.summonerNameModel = SummonerNameModel.fromRawJson(response.body);
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }

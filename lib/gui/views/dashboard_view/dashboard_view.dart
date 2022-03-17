@@ -71,7 +71,8 @@ class _DashboardViewState extends State<DashboardView> {
                   ],
                 ),
                 const SizedBox(height: 20.0),
-                PrimaryButton(text: 'Buscar', onPressed: validFormSearchProfile)
+                PrimaryButton(text: 'Buscar', onPressed: validFormSearchProfile),
+                Text(_store.summonerNameModel.name.toString())
               ],
             ) : const LoadingApp(),
           ),
@@ -80,9 +81,21 @@ class _DashboardViewState extends State<DashboardView> {
     );
   }
 
-  validFormSearchProfile() {
+  validFormSearchProfile() async {
+    final dashboardBloc = BlocProvider.of<DashboardBloc>(context);
     if (_store.nameInvocador != '' && _store.regionProfile != '') {
-      Navigator.pushNamed(context, 'profileLol');
+      final bool response = await dashboardBloc.getProfileLoLAccount();
+      if (response) {
+        setState(() {
+          _store.nameInvocador = "";
+          _store.regionProfile = "";
+          Navigator.pushNamed(context, 'profileLol');
+        });
+      } else {
+        FlushBarWidget(
+          message: "No se pudo encntrar al usuario ${_store.nameInvocador} en esta región, verifique los datos.",
+        ).showNotification(context);
+      }
     } else {
       const FlushBarWidget(
         message: "Por favor escriba el nombre del invocador y eliga la región.",

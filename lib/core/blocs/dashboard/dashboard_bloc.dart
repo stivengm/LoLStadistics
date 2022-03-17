@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:lol_stadistics/data/models/apis_model.dart';
-import 'package:lol_stadistics/data/models/summonerName_model.dart';
+import 'package:lol_stadistics/data/models/summoner_name_model.dart';
 import 'package:lol_stadistics/gui/views/store_app.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;

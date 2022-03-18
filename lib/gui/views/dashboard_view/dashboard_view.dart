@@ -88,7 +88,6 @@ class _DashboardViewState extends State<DashboardView> {
       if (response) {
         setState(() {
           _store.nameInvocador = "";
-          _store.regionProfile = "";
           Navigator.pushNamed(context, 'profileLol');
         });
       } else {

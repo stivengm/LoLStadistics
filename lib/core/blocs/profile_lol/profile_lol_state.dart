@@ -8,7 +8,7 @@ class ProfileLolState {
 
   ProfileLolState({
     this.champions,
-    this.loading = false,
+    this.loading = true,
     this.championsTest
   });
 

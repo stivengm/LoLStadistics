@@ -41,6 +41,7 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
       _store.summonerNameModel = SummonerNameModel.fromRawJson(response.body);
       return true;
     } else {
+      add(HandleLoading(false));
       return false;
     }
   }

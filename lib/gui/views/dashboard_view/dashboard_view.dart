@@ -60,6 +60,7 @@ class _DashboardViewState extends State<DashboardView> {
                       width: _media.width * .25,
                       child: DropdownButtonFormField(
                           items: _store.itemsDropDownRegion(),
+                          value: (_store.regionProfile != '') ? _store.regionProfile : null,
                           decoration: InputDecoration(
                               hintText: 'Región',
                               border: OutlineInputBorder(

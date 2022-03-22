@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:lol_stadistics/core/blocs/champions/champions_bloc.dart';
+import 'package:lol_stadistics/gui/widgets/loading.dart';
 
 class ChampionsView extends StatelessWidget {
   const ChampionsView({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class ChampionsView extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Container(
+                          SizedBox(
                             child: Image.network('http://ddragon.leagueoflegends.com/cdn/12.5.1/img/champion/${state.champions!.data![champion]!.id!}.png'),
                           ),
                           Text(state.champions!.data![champion]!.name!, style: Theme.of(context).textTheme.headline6),
@@ -55,10 +56,7 @@ class ChampionsView extends StatelessWidget {
                   ),
                 );
               }
-            ) : 
-            const Center(
-              child: CircularProgressIndicator()
-            );
+            ) : const LoadingApp();
         },
       ),
     );

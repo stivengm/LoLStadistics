@@ -73,7 +73,6 @@ class _DashboardViewState extends State<DashboardView> {
                 ),
                 const SizedBox(height: 20.0),
                 PrimaryButton(text: 'Buscar', onPressed: validFormSearchProfile),
-                Text(_store.summonerNameModel.name.toString())
               ],
             ) : const LoadingApp(),
           ),

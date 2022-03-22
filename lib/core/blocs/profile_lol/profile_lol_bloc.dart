@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:lol_stadistics/data/models/champ_maestry_test.dart';
 import 'package:lol_stadistics/data/models/champions_maestry.dart';
+import 'package:lol_stadistics/data/models/images_model.dart';
 import 'package:lol_stadistics/data/models/league_model.dart';
 import 'package:lol_stadistics/gui/views/store_app.dart';
 import 'package:meta/meta.dart';
@@ -48,9 +49,21 @@ class ProfileLolBloc extends Bloc<ProfileLolEvent, ProfileLolState> {
     });
     final response = await http.get(url);
     if (response.statusCode == 200) {
-      final resp = response.body.replaceAll('[', '').replaceAll(']', '');
-      LeagueModel leagueModel = LeagueModel.fromJson(json.decode(resp));
-      _store.leagueModel = leagueModel;
+      final jsonLeagueModel = jsonDecode(response.body);
+      final List<LeagueModel> leagueModel = jsonLeagueModel.map<LeagueModel>((m) => LeagueModel.fromJson(Map<String, dynamic>.from(m))).toList();
+      _store.leagueModelList = leagueModel;
+      for (var i = 0; i < _store.leagueModelList.length; i++) {
+        switch (_store.leagueModelList[i].queueType) {
+          case 'RANKED_SOLO_5x5':
+            _store.leagueModelSoloQ = _store.leagueModelList[i];
+            break;
+          case 'RANKED_FLEX_SR':
+            _store.leagueModelFlex = _store.leagueModelList[i];
+            break;
+          default:
+        }
+      }
+
       add(HandleLoading(false));
       return true;
     } else {

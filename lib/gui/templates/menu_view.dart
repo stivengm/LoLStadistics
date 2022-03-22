@@ -45,7 +45,7 @@ class _MenuDrawerZoomViewState extends State<MenuDrawerZoomView> {
           width: size.width * .5,
           child: Column(
             children: [
-              const Text("Hollaaaa mundoooo!!"),
+              // const Text("Hollaaaa mundoooo!!"),
               Expanded(
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,

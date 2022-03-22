@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:lol_stadistics/data/models/apis_model.dart';
+import 'package:lol_stadistics/data/models/images_model.dart';
 import 'package:lol_stadistics/data/models/league_model.dart';
 import 'package:lol_stadistics/data/models/region_model.dart';
 import 'package:lol_stadistics/data/models/summoner_name_model.dart';
 
 class StoreAppView {
 
-  String nameInvocador = "";
-  String regionProfile = "";
+  String nameInvocador = '';
+  String regionProfile = '';
 
   ApisDataBaseModel apisDataBaseModel = ApisDataBaseModel();
   SummonerNameModel summonerNameModel = SummonerNameModel();
-  LeagueModel? leagueModel = LeagueModel();
+  LeagueModel leagueModelSoloQ = LeagueModel();
+  LeagueModel leagueModelFlex = LeagueModel();
+  
+  ImagesModel imagesModel = ImagesModel();
+
+  List<LeagueModel> leagueModelList = [];
 
   List<RegionModel> region = [
     RegionModel(text: 'LAN', value: 'la1'),

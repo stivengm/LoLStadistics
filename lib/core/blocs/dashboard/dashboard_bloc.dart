@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:lol_stadistics/data/models/apis_model.dart';
+import 'package:lol_stadistics/data/models/images_model.dart';
 import 'package:lol_stadistics/data/models/summoner_name_model.dart';
 import 'package:lol_stadistics/gui/views/store_app.dart';
 import 'package:meta/meta.dart';
@@ -26,7 +27,23 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
     final response = await http.get(url);
     if (response.statusCode == 200) {
       _store.apisDataBaseModel = ApisDataBaseModel.fromRawJson(response.body);
-      if (_store.apisDataBaseModel.key != null) add(HandleLoading(false));
+      if (_store.apisDataBaseModel.key != null) {
+        getImagesDataBase();
+      } 
+    } else {
+
+    }
+  }
+
+  getImagesDataBase() async {
+    var url = Uri.https('lolskillapp-default-rtdb.firebaseio.com', 'imagenes.json');
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      var resp = response.body.replaceAll('null,', '');
+      _store.imagesModel = ImagesModel.fromRawJson(resp);
+      if (_store.imagesModel.league!.isNotEmpty) {
+        add(HandleLoading(false));
+      }
     }
   }
 

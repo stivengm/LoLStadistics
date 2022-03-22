@@ -1,5 +1,9 @@
 
+import 'package:lol_stadistics/gui/views/store_app.dart';
+
 class StoreProfileLoLView {
+
+  final _store = StoreAppView();
 
   getLeague(league) {
     switch (league) {
@@ -11,6 +15,21 @@ class StoreProfileLoLView {
         return 'PLATINO';
       default:
         return 'UNRANKED';
+    }
+  }
+
+  getEmblem(league) {
+    switch (league) {
+      case "UNRANKED":
+        return "${_store.imagesModel.league![0]!.url}";
+      case "IRON":
+        return "${_store.imagesModel.league![1]!.url}";
+      case "BRONZE":
+        return "${_store.imagesModel.league![2]!.url}";
+      case "SILVER":
+        return "${_store.imagesModel.league![3]!.url}";
+      default:
+        return "${_store.imagesModel.league![0]!.url}";
     }
   }
 

@@ -5,6 +5,26 @@ import 'package:json_annotation/json_annotation.dart';
 part 'league_model.g.dart';
 
 @JsonSerializable()
+class ListLeaguesModel {
+
+  final List<LeagueModel?>? leagueModel;
+
+  ListLeaguesModel({
+    this.leagueModel
+  });
+
+  factory ListLeaguesModel.fromRawJson(String str) => ListLeaguesModel.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
+  factory ListLeaguesModel.fromJson(Map<String, dynamic> json) => _$ListLeaguesModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ListLeaguesModelToJson(this);
+
+}
+
+
+@JsonSerializable()
 class LeagueModel {
 
   LeagueModel({

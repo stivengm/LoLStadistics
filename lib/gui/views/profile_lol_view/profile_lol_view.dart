@@ -24,6 +24,7 @@ class _ProfileLolViewState extends State<ProfileLolView> {
   Widget build(BuildContext context) {
     final _store = StoreAppView();
     final _storeProfile = StoreProfileLoLView();
+    Size _media = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(),
       body: BlocBuilder<ProfileLolBloc, ProfileLolState>(
@@ -31,6 +32,7 @@ class _ProfileLolViewState extends State<ProfileLolView> {
           return Container(
             padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
             child: state.loading != true ? Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _header(),
                 Row(
@@ -53,19 +55,59 @@ class _ProfileLolViewState extends State<ProfileLolView> {
                         children: [
                           Text(_store.summonerNameModel.name.toString()),
                           const SizedBox(height: 20.0),
-                          Text("Victorias: ${_store.leagueModel!.wins}"),
-                          Text("Derrotas: ${_store.leagueModel!.losses}"),
+                          // Text("Victorias: ${_store.leagueModel.wins}"),
+                          // Text("Derrotas: ${_store.leagueModel.losses}"),
                         ],
                       ),
                     )
                   ],
                 ),
-                Text(_storeProfile.getLeague(_store.leagueModel!.tier)),
-                IconButton(
-                  icon: const Icon(Icons.add),
-                  onPressed: () =>
-                      Navigator.pushNamed(context, 'maestryLoLAccount'),
-                )
+                // Text(_storeProfile.getLeague(_store.leagueModel!.tier)),
+                const SizedBox(height: 20.0),
+                const Text("Clasificatoria Sólo/Dúo"),
+                _store.leagueModelSoloQ.tier != '' ? Container(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.network('${_storeProfile.getEmblem(_store.leagueModelSoloQ.tier)}', width: _media.width * .4,),
+                      const SizedBox(width: 20.0),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(height: 20.0),
+                            Text("${_storeProfile.getLeague(_store.leagueModelSoloQ.tier!)} ${_store.leagueModelSoloQ.rank}"),
+                            Text("${_store.leagueModelSoloQ.leaguePoints} LP / ${_store.leagueModelSoloQ.wins}V ${_store.leagueModelSoloQ.losses} D")
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ) : const SizedBox(),
+                _store.leagueModelFlex.tier != null ? Container(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.network('${_storeProfile.getEmblem(_store.leagueModelFlex.tier)}', width: _media.width * .4,),
+                      const SizedBox(width: 20.0),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(height: 20.0),
+                            Text("${_storeProfile.getLeague(_store.leagueModelFlex.tier!)} ${_store.leagueModelFlex.rank}"),
+                            Text("${_store.leagueModelFlex.leaguePoints} LP / ${_store.leagueModelFlex.wins}V ${_store.leagueModelFlex.losses} D")
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ) : const SizedBox(),
+                // IconButton(
+                //   icon: const Icon(Icons.add),
+                //   onPressed: () =>
+                //       Navigator.pushNamed(context, 'maestryLoLAccount'),
+                // )
               ],
             ) : const LoadingApp(),
           );

@@ -7,13 +7,3 @@ class HandleLoading extends ProfileLolEvent {
   final bool? loading;
   HandleLoading(this.loading);
 }
-
-class GetChampions extends ProfileLolEvent {
-  final ChampionsMaestryModel champions;
-  GetChampions(this.champions);
-}
-
-class GetChampionsTest extends ProfileLolEvent {
-  final ChampionMaestryModel championsTest;
-  GetChampionsTest(this.championsTest);
-}

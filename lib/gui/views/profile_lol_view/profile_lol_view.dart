@@ -35,6 +35,7 @@ class _ProfileLolViewState extends State<ProfileLolView> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _header(),
+                const SizedBox(height: 50.0),
                 Row(
                   children: [
                     Container(
@@ -119,7 +120,12 @@ class _ProfileLolViewState extends State<ProfileLolView> {
   Widget _header() {
     return Row(
       children: [
-
+        GestureDetector(
+          child: const Text("Maestría de campeones"),
+          onTap: () {
+            Navigator.pushNamed(context, 'maestryLoLAccount');
+          },
+        ),
       ],
     );
   }

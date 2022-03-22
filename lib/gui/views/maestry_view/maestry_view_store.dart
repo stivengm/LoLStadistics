@@ -1,7 +1,10 @@
+import 'package:lol_stadistics/gui/views/store_app.dart';
 
 class StoreMaestryView {
 
-  getChampionById(id) {
+  final _store = StoreAppView();
+
+  getChampionById(int id) {
     switch (id) {
       case 266:
         return "Aatrox";
@@ -205,7 +208,7 @@ class StoreMaestryView {
         return "Renekton";
       case 107:
         return "Rengar";
-      case 52:
+      case 92:
         return "Riven";
       case 68:
         return "Rumble";
@@ -322,6 +325,25 @@ class StoreMaestryView {
       case 143:
         return "Zyra";
       default:
+    }
+  }
+
+  getMaestryById(int id) {
+    switch (id) {
+      case 1:
+        return _store.imagesModel.maestria![0]!.url;
+      case 2:
+        return _store.imagesModel.maestria![1]!.url;
+      case 3:
+        return _store.imagesModel.maestria![2]!.url;
+      case 4:
+        return _store.imagesModel.maestria![3]!.url;
+      case 5:
+        return _store.imagesModel.maestria![4]!.url;
+      case 6:
+        return _store.imagesModel.maestria![5]!.url;
+      case 7:
+        return _store.imagesModel.maestria![6]!.url;
     }
   }
 

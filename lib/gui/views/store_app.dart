@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lol_stadistics/data/models/apis_model.dart';
+import 'package:lol_stadistics/data/models/champ_maestry_test.dart';
 import 'package:lol_stadistics/data/models/images_model.dart';
 import 'package:lol_stadistics/data/models/league_model.dart';
 import 'package:lol_stadistics/data/models/region_model.dart';
@@ -18,6 +19,7 @@ class StoreAppView {
   ImagesModel imagesModel = ImagesModel();
 
   List<LeagueModel> leagueModelList = [];
+  List<ChampionMaestryModel> championMaestryModel = [];
 
   List<RegionModel> region = [
     RegionModel(text: 'LAN', value: 'la1'),

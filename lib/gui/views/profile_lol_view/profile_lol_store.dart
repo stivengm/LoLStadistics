@@ -7,12 +7,18 @@ class StoreProfileLoLView {
 
   getLeague(league) {
     switch (league) {
+      case "IRON":
+        return 'HIERRO';
+      case "BRONZE":
+        return 'BRONCE';
       case "SILVER":
         return 'PLATA';
       case "GOLD":
         return 'ORO';
       case "PLATINUM":
         return 'PLATINO';
+      case "DIAMOND":
+        return 'DIAMANTE';
       default:
         return 'UNRANKED';
     }
@@ -28,6 +34,10 @@ class StoreProfileLoLView {
         return "${_store.imagesModel.league![2]!.url}";
       case "SILVER":
         return "${_store.imagesModel.league![3]!.url}";
+      case "GOLD":
+        return "${_store.imagesModel.league![4]!.url}";
+      case "PLATINUM":
+        return "${_store.imagesModel.league![5]!.url}";
       default:
         return "${_store.imagesModel.league![0]!.url}";
     }

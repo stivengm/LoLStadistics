@@ -64,8 +64,8 @@ class _ProfileLolViewState extends State<ProfileLolView> {
                     ],
                   ),
                   const SizedBox(height: 20.0),
-                  const Text("Clasificatoria Sólo/Dúo"),
-                  _store.leagueModelSoloQ.tier != '' ? SizedBox(
+                  _store.leagueModelSoloQ.tier != '' && _store.leagueModelSoloQ.tier != null ? const Text("Clasificatoria Sólo/Dúo") : const SizedBox(),
+                  _store.leagueModelSoloQ.tier != '' && _store.leagueModelSoloQ.tier != null ? SizedBox(
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -86,8 +86,8 @@ class _ProfileLolViewState extends State<ProfileLolView> {
                     ),
                   ) : const SizedBox(),
                   const SizedBox(height: 20.0),
-                  const Text("Clasificatoria Flexible"),
-                  _store.leagueModelFlex.tier != null ? SizedBox(
+                  _store.leagueModelFlex.tier != null && _store.leagueModelFlex.tier != '' ? const Text("Clasificatoria Flexible") : const SizedBox(),
+                  _store.leagueModelFlex.tier != null && _store.leagueModelFlex.tier != '' ? SizedBox(
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

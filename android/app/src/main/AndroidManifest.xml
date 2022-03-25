@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.lol_stadistics">
    <application
-        android:label="lol_stadistics"
+        android:label="LoL Stadistics"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

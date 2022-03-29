@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:lol_stadistics/core/blocs/profile_lol/profile_lol_bloc.dart';
 import 'package:lol_stadistics/data/models/champ_maestry_test.dart';
 import 'package:lol_stadistics/gui/views/maestry_view/maestry_view_store.dart';
@@ -72,10 +73,13 @@ class _MaestryViewState extends State<MaestryView> {
             ],
           ),
           Text("${_storeMaestry.getChampionById(champion.championId!)}"),
-          Text("${champion.championPoints}"),
+          Text(_formato(champion.championPoints!)),
+          const SizedBox(height: 15.0)
         ],
       ),
     );
   }
+
+  String _formato(int valor) => NumberFormat.decimalPattern('en_US').format(valor);
 
 }

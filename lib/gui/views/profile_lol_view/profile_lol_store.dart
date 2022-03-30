@@ -38,6 +38,8 @@ class StoreProfileLoLView {
         return "${_store.imagesModel.league![4]!.url}";
       case "PLATINUM":
         return "${_store.imagesModel.league![5]!.url}";
+      case "DIAMOND":
+        return "${_store.imagesModel.league![6]!.url}";
       default:
         return "${_store.imagesModel.league![0]!.url}";
     }

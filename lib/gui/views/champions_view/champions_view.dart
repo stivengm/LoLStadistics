@@ -27,32 +27,39 @@ class ChampionsView extends StatelessWidget {
               itemCount: state.champions!.data!.length,
               itemBuilder: ( context, index ) {
                 String champion = state.champions!.data!.keys.elementAt(index);
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Column(
-                    children: [
-                      Row(
+                return GestureDetector(
+                  onTap: () => Navigator.pushNamed(context, 'championsDetail'),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Container(
+                      width: double.infinity,
+                      color: Colors.transparent,
+                      child: Column(
                         children: [
-                          SizedBox(
-                            child: Image.network('http://ddragon.leagueoflegends.com/cdn/12.5.1/img/champion/${state.champions!.data![champion]!.id!}.png'),
-                          ),
-                          Text(state.champions!.data![champion]!.name!, style: Theme.of(context).textTheme.headline6),
-                          Column(
+                          Row(
                             children: [
-                              Image.asset('assets/ea.png', width: 20.0,),
-                              const Text("EA")
+                              SizedBox(
+                                child: Image.network('http://ddragon.leagueoflegends.com/cdn/12.5.1/img/champion/${state.champions!.data![champion]!.id!}.png'),
+                              ),
+                              Text(state.champions!.data![champion]!.name!, style: Theme.of(context).textTheme.headline6),
+                              Column(
+                                children: [
+                                  Image.asset('assets/ea.png', width: 20.0,),
+                                  const Text("EA")
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Image.asset('assets/riot_point.png', width: 20.0,),
+                                  const Text("RP")
+                                ],
+                              )
                             ],
                           ),
-                          Column(
-                            children: [
-                              Image.asset('assets/riot_point.png', width: 20.0,),
-                              const Text("RP")
-                            ],
-                          )
+                          const Divider()
                         ],
                       ),
-                      const Divider()
-                    ],
+                    ),
                   ),
                 );
               }
